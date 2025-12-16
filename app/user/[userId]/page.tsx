@@ -28,13 +28,6 @@ export default async function UserPage({ params }: UserPageProps) {
   
   // 指定ユーザーの投稿画像を取得
   const userPosts = await getUserPostsByUserId(userId);
-  
-  // ImageGrid用の形式に変換
-  const userImages = userPosts.map(post => ({
-    id: post.id,
-    url: post.url,
-    description: post.description,
-  }));
 
   return (
     <div className="min-h-screen bg-white">
@@ -55,7 +48,7 @@ export default async function UserPage({ params }: UserPageProps) {
         {/* ユーザーの投稿画像一覧 */}
         <section>
           <h2 className="text-xl font-bold mb-4">投稿一覧</h2>
-          <ImageGrid images={userImages} />
+          <ImageGrid images={userPosts} />
         </section>
       </main>
     </div>

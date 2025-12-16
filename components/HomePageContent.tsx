@@ -25,6 +25,7 @@ export default function HomePageContent({ posts: initialPosts }: HomePageContent
       setCurrentUserId(user?.id || null);
     };
     getCurrentUser();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // 親コンポーネントから渡されたpostsが更新されたときに同期

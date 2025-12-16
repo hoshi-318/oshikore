@@ -1,6 +1,6 @@
 import ImageGrid from "@/components/ImageGrid";
 import Logo from "@/components/Logo";
-import { getLatestPosts } from "@/lib/posts";
+import { getLatestPosts, PostImage } from "@/lib/posts";
 import ErrorMessage from "@/components/ErrorMessage";
 import BottomTabBar from "@/components/BottomTabBar";
 import FloatingPostButton from "@/components/FloatingPostButton";
@@ -12,7 +12,7 @@ interface HomePageProps {
 
 export default async function HomePage({ searchParams }: HomePageProps) {
   // 最新20件の投稿画像を取得（エラーハンドリング付き）
-  let latestPosts = [];
+  let latestPosts: PostImage[] = [];
   try {
     latestPosts = await getLatestPosts(20);
   } catch (error) {
